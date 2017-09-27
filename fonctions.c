@@ -24,3 +24,4 @@ table Table_ini( char nom, int lig, int col )
   t->nb_Colonne = col;
   t->remplie = false;
 }
+

@@ -13,7 +13,33 @@
 #define LARGEUR 500
 
 
-
+void affiche_Piece( piece p, int x, int y)
+{
+  SDL_Surface *rectangle = NULL;
+  rectangle = SDL_CreateRGBSurface( SDL_HWSURFACE, 50, 50, 32, 0, 0, 0, 0);
+  SDL_Rect position;
+  position.x = x;
+  position.y = y;
+  int k;
+  int i;
+  for(k=0;k==4;k=k+1)
+  {
+    for(i=0;i==4;i=i+1)
+    {
+      if (p.forme[k][i] == 1)
+      {
+	SDL_FillRect(rectangle, NULL, SDL_MapRGB(ecran->format, 255, 255, 255));
+	SDL_BlitSurface(rectangle, NULL, ecran, &position);
+      }
+      else
+      {
+	position.x = position.x+50;
+      }
+    }
+    position.x = x;
+    position.y = position.y + 50;
+  }
+}
 
 
 
@@ -63,6 +89,7 @@ Appliquer le rectange:
 SDL_Rect position;
 position.x = coordx;
 position.y = coordy;
+SDL_FillRect(rectangle, NULL, SDL_MapRGB(ecran->format, 255, 255, 255));
 SDL_BlitSurface(rectangle, NULL, ecran, &position);
 
 */
